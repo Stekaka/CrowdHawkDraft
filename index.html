@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrowdHawk – Smart Crowd Counting</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+  <header class="header">
+    <img src="images/crowdhawk1.PNG" alt="CrowdHawk Logo" class="logo-img" />
+    <div class="header-actions">
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <a href="/login" class="login-btn">Login</a>
+    </div>
+  </header>
+  <main class="main-content">
+    <section class="hero">
+      <h1>See the Crowd. Know the Flow.</h1>
+      <p>Revolutionize your event or venue with AI-powered crowd counting and analytics. Real-time insights, effortless integration, smarter decisions.</p>
+      <a href="#contact" class="cta-btn">Get Started</a>
+    </section>
+    
+    <section class="packages">
+      <h2 class="packages-title">Choose Your Package</h2>
+      <div class="package-cards">
+        <div class="package-card">
+          <span class="icon">🌱</span>
+          <h3>Basic</h3>
+          <p class="price">Free</p>
+          <ul>
+            <li>Up to 1 camera</li>
+            <li>Basic analytics</li>
+            <li>Email support</li>
+          </ul>
+          <button class="select-btn">Select</button>
+        </div>
+        <div class="package-card">
+          <span class="icon">🚀</span>
+          <h3>Advanced</h3>
+          <p class="price">$29<span>/mo</span></p>
+          <ul>
+            <li>Up to 5 cameras</li>
+            <li>Real-time analytics</li>
+            <li>Email & chat support</li>
+          </ul>
+          <button class="select-btn">Select</button>
+        </div>
+        <div class="package-card featured">
+          <span class="icon">🦅</span>
+          <h3>Full</h3>
+          <p class="price">$79<span>/mo</span></p>
+          <ul>
+            <li>Up to 20 cameras</li>
+            <li>Advanced analytics</li>
+            <li>Priority support</li>
+          </ul>
+          <button class="select-btn">Select</button>
+        </div>
+        <div class="package-card enterprise">
+          <span class="icon">🏢</span>
+          <div class="enterprise-content">
+            <h3>Enterprise</h3>
+            <p class="price">Custom</p>
+            <ul>
+              <li>Unlimited cameras</li>
+              <li>Custom integrations</li>
+              <li>Dedicated manager</li>
+            </ul>
+          </div>
+          <button class="select-btn" id="contact-enterprise">Contact Us</button>
+        </div>
+      </div>
+    </section>
+    <section class="features">
+      <div class="features-row">
+        <div class="feature">
+          <h2>Accurate Counting</h2>
+          <p>Advanced AI ensures precise crowd numbers, even in dynamic environments.</p>
+        </div>
+        <div class="feature">
+          <h2>Live Analytics</h2>
+          <p>Monitor crowd density and movement in real time from any device.</p>
+        </div>
+      </div>
+      <div class="features-row center-row">
+        <div class="feature">
+          <h2>Easy Integration</h2>
+          <p>Seamlessly connect with your existing cameras and dashboards.</p>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <h2>Ready to elevate your crowd management?</h2>
+      <form>
+        <input type="email" placeholder="Your email" required />
+        <button type="submit">Request Demo</button>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    &copy; 2025 CrowdHawk. All rights reserved.
+  </footer>
+  <div id="popup-overlay" class="popup-overlay" style="display:none;">
+    <div class="popup-form">
+      <button class="popup-close" aria-label="Close">&times;</button>
+      <h2>Contact Enterprise Sales</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="How can we help you?" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <script>
+  // Light/Dark mode toggle
+  const toggle = document.getElementById('theme-toggle');
+  // Set correct icon on page load
+  toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  });
+
+  // Popup logic
+  const popupOverlay = document.getElementById('popup-overlay');
+  const contactBtn = document.querySelector('.package-card.enterprise .select-btn');
+  const popupClose = document.querySelector('.popup-close');
+
+  contactBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    popupOverlay.style.display = 'flex';
+  });
+
+  popupClose.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+  });
+
+  // Optional: Close popup on overlay click
+  popupOverlay.addEventListener('click', (e) => {
+    if (e.target === popupOverlay) popupOverlay.style.display = 'none';
+  });
+  </script>
+</body>
+</html>
